@@ -9,7 +9,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      {/* <ConnectedRouter history={history}> */}
+        <App />
+      {/* </ConnectedRouter> */}
     </Provider>
   </React.StrictMode>
 );
+
+

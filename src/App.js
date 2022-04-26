@@ -2,7 +2,7 @@ import PostsList from './features/posts/PostsList';
 
 const App = () => {
   return (
-   <main>
+   <main className="App">
      <PostsList />
    </main>
   );
