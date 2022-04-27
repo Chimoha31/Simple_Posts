@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import {useDispatch} from 'react-redux';
-import {nanoid} from '@reduxjs/toolkit'; //uuid()のようにランダムでidを生成してくれる
-import {postAdded} from './postSlice';
+import { useDispatch } from "react-redux";
+import { postAdded } from "./postSlice";
 
 const AddPostForm = () => {
   const dispatch = useDispatch();
@@ -11,24 +10,18 @@ const AddPostForm = () => {
 
   const onTitleChanged = (e) => {
     setTitle(e.target.value);
-  } 
+  };
   const onContentChanged = (e) => {
     setContent(e.target.value);
-  } 
+  };
 
   const onSavePostClicked = () => {
-    if(title && content) {
-      dispatch(
-        postAdded({
-          id: nanoid(),
-          title,
-          content,
-        })
-      )
+    if (title && content) {
+      dispatch(postAdded(title, content));
       setTitle("");
       setContent("");
     }
-  }
+  };
 
   return (
     <section>
@@ -50,7 +43,9 @@ const AddPostForm = () => {
           value={content}
           onChange={onContentChanged}
         ></textarea>
-        <button type="button" onClick={onSavePostClicked}>Save Post</button>
+        <button type="button" onClick={onSavePostClicked}>
+          Save Post
+        </button>
       </form>
     </section>
   );
